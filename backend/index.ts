@@ -13,7 +13,9 @@ const client = tavily({ apiKey: process.env.TAVILY_API_KEY });
 const app = express()
 app.use(express.json())
 app.use(cors({
-  origin: process.env.FRONTEND_URL ?? "*",
+  origin: function (origin, callback) {
+    callback(null, origin || "*");
+  },
   credentials: true
 }))
 
