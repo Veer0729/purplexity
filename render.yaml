@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: purplexity-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install -g bun && bun install
+    startCommand: bun run index.ts
+    envVars:
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: DIRECT_URL
+        sync: false
+      - key: SUPABASE_API_SECRET
+        sync: false
+      - key: BUN_PUBLIC_SUPABASE_URL
+        sync: false
